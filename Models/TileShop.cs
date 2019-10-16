@@ -90,13 +90,16 @@ namespace Torus_Tile.Models
 
         }
 
+        #endregion
+
+
 
         public List<Tile_Product> getTileProductsList()
         {
             List<Tile_Product> products = new List<Tile_Product>();
 
             MySqlConnection con = connServer();
-            MySqlCommand cmd = new MySqlCommand("select * from tile_products;", con);
+            MySqlCommand cmd = new MySqlCommand("select * from products;", con);
             var r = cmd.ExecuteReader();
 
             while (r.Read())
@@ -105,8 +108,8 @@ namespace Torus_Tile.Models
                 p.id = Convert.ToInt32(r["id"]);
                 p.Code = r["Code"].ToString();
                 p.Name = r["Name"].ToString();
-                p.Price = Convert.ToDouble(r["price_single"]);
-                p.Price_Sqf = Convert.ToDouble(r["price_sqf"]);
+                p.Price = Convert.ToDouble(r["price"]);
+                p.Price_Sqf = Convert.ToDouble(r["price2"]);
                 p.imgUrl = r["pictureUrl"].ToString();
 
 
@@ -115,11 +118,13 @@ namespace Torus_Tile.Models
             return products;
 
         }
+
+
         public void add_TileProduct(string code, string name, double price, double price_sqf, string imgUrl)
         {
 
             var con = connServer();
-            string cmdText = $"insert into tile_products(Code, Name, price_single, price_sqf, pictureUrl) value('{code}', '{name}', '{price.ToString()}', '{price_sqf.ToString()}', " +
+            string cmdText = $"insert into products(Code, Name, price, price2, pictureUrl) value('{code}', '{name}', '{price.ToString()}', '{price_sqf.ToString()}', " +
                 $"'{imgUrl}');";
 
             MySqlCommand cmd = new MySqlCommand(cmdText, con);
@@ -133,8 +138,6 @@ namespace Torus_Tile.Models
             }
         }
 
-        #endregion
-
-
+        
     }
 }
