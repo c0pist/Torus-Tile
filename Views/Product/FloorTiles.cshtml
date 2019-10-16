@@ -36,25 +36,22 @@
     <tbody>
         @foreach (var item in products)
         {
-            <tr>
-                <td>@item.Code</td>
-                <td>@item.Name</td>
-                <td>@item.Price</td>
-                <td>@item.Price_Sqf</td>
-                <td><img src="@item.imgUrl" width="30" height="30" /></td>
+        <tr>
+            <td>@item.Code</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Price_Sqf</td>
+            <td><img src="@item.imgUrl" width="30" height="30" /></td>
+            @if (user == "Admin")
+            {
                 <td>
-                    @if (user == "Admin")
-                    {
-                        <a href="/Product/update?id=@item.id" class="btn btn-primary">Update</a>
-                    }
+                    <a href="/Product/update?id=@item.id" class="btn btn-primary">Update</a>
                 </td>
                 <td>
-                    @if (user == "Admin")
-                    {
-                        <a href="/Product/delete?id=@item.id" class="btn btn-primary">Delete</a>
-                    }
+                    <a href="/Product/delete?id=@item.id" class="btn btn-primary">Delete</a>
                 </td>
-            </tr>
+            }
+        </tr>
         }
     </tbody>
 </table>
