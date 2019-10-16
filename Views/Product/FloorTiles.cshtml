@@ -1,0 +1,60 @@
+﻿
+@{
+    var products = ViewData["tile products"] as List<Tile_Product>;
+
+
+    @using Microsoft.AspNetCore.Http;
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+    var user = (string)HttpContextAccessor.HttpContext.Session.GetString("user");
+
+}
+
+
+<h1>Floor tiles</h1>
+
+@{ 
+    if (user == "Admin") 
+    {
+        <a href="/product/add" class="btn btn-primary">Add New Product</a>
+    }
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Product code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Price(sqf)</th>
+            <th scope="col">Picture</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in products)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Price_Sqf</td>
+                <td><img src="@item.imgUrl" width="30" height="30" /></td>
+                <td>
+                    @if (user == "Admin")
+                    {
+                        <a href="/Product/update?id=@item.id" class="btn btn-primary">Update</a>
+                    }
+                </td>
+                <td>
+                    @if (user == "Admin")
+                    {
+                        <a href="/Product/delete?id=@item.id" class="btn btn-primary">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
