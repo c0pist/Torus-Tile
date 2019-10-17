@@ -25,6 +25,7 @@
       "Torus Tile/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Session": "2.2.0",
+          "Microsoft.CodeAnalysis.Analyzers": "2.9.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
