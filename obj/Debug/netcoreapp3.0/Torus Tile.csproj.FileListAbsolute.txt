@@ -270,3 +270,5 @@ D:\C# Portfolio\Torus-Tile\Torus Tile\obj\Debug\netcoreapp3.0\Torus Tile.Views.p
 D:\C# Portfolio\Torus-Tile\Torus Tile\obj\Debug\netcoreapp3.0\Torus Tile.csproj.CopyComplete
 D:\C# Portfolio\Torus-Tile\Torus Tile\obj\Debug\netcoreapp3.0\Torus Tile.dll
 D:\C# Portfolio\Torus-Tile\Torus Tile\obj\Debug\netcoreapp3.0\Torus Tile.pdb
+D:\C# Portfolio\Torus-Tile\obj\Debug\netcoreapp3.0\Torus Tile.dll
+D:\C# Portfolio\Torus-Tile\obj\Debug\netcoreapp3.0\Torus Tile.pdb
